@@ -60,16 +60,16 @@ return (
 <div className="footer-tablebox">
 <div className="footer-headline">World Travel</div>
 <ul className="footer-navlink">
-<li><Link href='#!'>International Travel Listings</Link></li>
-<li><Link href='#!'>Trends in the Global Travel Market</Link></li>
-<li><Link href='#!'>Exploring Architectural Wonders Globally</Link></li>
-<li><Link href='#!'>Urban Exploration Adventures</Link></li>
-<li><Link href='#!'>Getaways in Europe</Link></li>
-<li><Link href='#!'>Adventures in Asia</Link></li>
-<li><Link href='#!'>Exploring Africa</Link></li>
-<li><Link href='#!'>North and South American Escapes</Link></li>
-<li><Link href='#!'>Oceania Discoveries</Link></li>
-<li><Link href='#!'>Backpacking Around the World</Link></li>
+<li><Link href='#!'>United Kingdom</Link></li>
+<li><Link href='#!'>Brazil</Link></li>
+<li><Link href='#!'>South America</Link></li>
+<li><Link href='#!'>Mexico</Link></li>
+<li><Link href='#!'>China</Link></li>
+<li><Link href='#!'>Germany</Link></li>
+<li><Link href='#!'>Africa</Link></li>
+<li><Link href='#!'>Australia</Link></li>
+<li><Link href='#!'>Canada</Link></li>
+<li><Link href='#!'>Italy</Link></li>
 </ul>
 </div>
 
