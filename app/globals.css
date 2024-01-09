@@ -22,15 +22,20 @@ cursor: pointer;
 .contact-box{
 font-size: 30px;
 color: purple;
+font-weight: 600;
 }
 
 @media(max-width:768px){
 .header{
-  flex-direction: column;
-  margin: 5px 0;
+flex-direction: column;
+margin: 5px 0;
+}
+
+.contact-box{
+font-size: 20px;
 }
 }
-  /* header css stops here */
+/* header css stops here */
 
 .nav{
 display: flex;
@@ -105,8 +110,205 @@ margin-left: 30px;
 }
 }
   /* navbar stops here */
+  .hero {
+background-image: linear-gradient(to bottom, #0000004d, #0000004d), url("./img/hero.jpg");
+background-size: cover;
+background-position: center;
+display: flex;
+flex-direction: column;
+place-items: center;
+color: #fff;
+padding: 1rem;
+}
+  
+  
+.hero h1 {
+font-size: 2rem;
+margin-bottom: 2rem;
+letter-spacing: 1px;
+}
+
+.hero p {
+font-size: 1.5rem;
+margin-bottom: 3rem;
+letter-spacing: 1px;
+}
 
 
+
+.search-results-container{
+background-color: #fff;
+z-index: 999;
+position : absolute ;
+width: 96%;
+top: 230px;
+}
+
+.search-results-container a{
+color: #000;
+text-decoration: none;
+font-weight: bolder;
+text-align: start;
+}
+
+
+
+.search-results-container p{
+font-size: 16px;
+padding: 0 1rem;
+    letter-spacing: 2px;
+}
+
+
+
+.heroform{
+position: relative;
+display: flex;
+flex-direction: column;
+place-items: center;
+width: 30%;
+padding: 10rem 0;
+}
+
+.heroform img{
+  transform: translate(0) !important;
+  position: absolute;
+  top: 57%;
+  right: 0;
+}
+    
+.heroform input{
+width:100%;
+height:38px;
+padding:1rem;
+outline:none;
+border:none;
+font-size: 20px;
+direction: ltr;
+color: #111;
+}
+
+.form-btn{
+width: 10rem;
+background-color:#2072ed;
+color: #fff;
+outline: none;
+border-width: 0;
+cursor: pointer;
+transition: 0.5s;
+}
+
+.form-btn:hover{
+background-color: #2e43d8;
+}
+
+
+
+
+@media(max-width:1600px){
+.heroform{
+width: 50%;
+}
+}
+@media(max-width:1400px){
+.heroform{
+width: 60%;
+}
+}
+@media(max-width:1200px){
+.heroform{
+width: 70%;
+}
+}
+
+@media(max-width:1000px){
+.heroform{
+width: 100%;
+}
+}
+
+@media(max-width:768px){
+.search-results-container{
+width: 93.2%;
+}
+.heroform img{
+  top:55%;
+  }
+
+  .hero h1{
+    font-size:20px;
+    }
+}
+/* heroform css stops here*/
+.plan-box{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+place-items: center;
+
+}
+
+.left-plan{
+  display: grid;
+background-color: #2e43d8;  
+color: #fff;
+border-right: solid  3px #fff;
+height: 100%;
+width: 100%;
+
+}
+
+.left-plan p{
+line-height: 24px;
+font-weight: 600;
+}
+
+
+.right-plan{
+background-color: #2e43d8;  
+color: #fff;
+height: 100%;
+width: 100%;
+
+}
+
+
+.right-plan p{
+line-height: 24px;
+font-weight: 600;
+}
+
+.right-plan li{
+list-style: none;
+
+}
+
+.right-plan a{
+color: #fff;
+text-decoration: none;
+line-height: 24px;
+list-style: none;
+font-weight: 600;
+}
+
+.planflex{
+display: flex;
+place-items: center;
+justify-content: space-between;
+border: solid 1px #fff;
+padding: 1rem;
+}
+
+.tropic-hero{
+background-image: url("./img/tropical_hero.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+display: grid;
+place-items: center;
+height: 700px;
+}
+
+/* planbox css stops here */
 
 footer{
 padding: 3px;
