@@ -1,25 +1,67 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from './Footer';
 import adventpic from "../img/journey_logo.png"
 import { useRouter } from 'next/navigation';
+import { auth } from '../Config/firebase';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 export default function Navbar() {
 const [isFooterVisible, setIsFooterVisible] = useState(false);
 const [isSignedIn, setIsSignedIn] = useState(false);
 const [names, setNames] = useState([]);
 const router = useRouter()
-const currentUserIdentifier = 'l6rGosZQ6obbQBb89KfLW5xAHIB3';
-const isAdminUser = currentUserIdentifier 
 const toggleFooter = () => {
 setIsFooterVisible(!isFooterVisible);
 };
+useEffect(() => {
+const unsubscribe = auth.onAuthStateChanged(async (user) => {
+setIsSignedIn(!!user);
 
+if (user) {
+try {
+// Fetch user data from Firestore
+const userData = await getUserData(user.uid);          
+setNames([userData.firstName, userData.lastName]);
+} catch (error) {
+console.error(error.message);
+}
+}
+});
+// Add event listener to the document body
+  
+  
+  
+const getUserData = async (userId) => {
+try {
+const db = getFirestore();
+const userDocRef = doc(db, 'users', userId);
+const userDocSnapshot = await getDoc(userDocRef);    
+if (userDocSnapshot.exists()) {
+const userData = userDocSnapshot.data();
+return userData;
+} else {
+return null;
+}
+} catch (error) {
+console.error('Error fetching user data:', error.message);
+throw error;
+}
+};
+return () => {
+unsubscribe(); // Assuming you have an unsubscribe function
+};
+}, []);
+  
 
-const handleAdminClick = () => {
-    router.push('/pages/Admin'); // Change '/admin' to the actual path of your admin page
+const handleLogout = async () => {
+  try {
+  await auth.signOut();
+  router.push('/pages/Login')
+  } catch (error) {
+  }
   };
 return (
 <>
@@ -47,38 +89,40 @@ Call us, we're open 24/7
 
 <ul className="navlinks">
 {isSignedIn ? (
-  isAdminUser && (
-    <Link href='#!' style={{ cursor: 'none' }} onClick={handleAdminClick}>
-      {names.length === 2 && (
-        <>
-          <span className="sm-name">{names[0]}</span>
-          <span className="sm-name">{names[1]}</span>
-        </>
-      )}
-    </Link>
-  )
+<Link  href='/pages/Admin'>
+{names.length === 2 && (
+<>
+<span className="sm-name" >{names[0]}</span>
+<span className="sm-name">{names[1]}</span>
+</>
+)}
+</Link>
 ) : (
   <div className="commentreg-box">
     <span
       style={{ margin: '10px', color: '#fff', cursor: 'pointer' }}
       onClick={() => router.push('/pages/Login')}
     >
-      Login
+      Admin
     </span>
-    <span
-      style={{ margin: '10px', color: '#fff', cursor: 'pointer' }}
-      onClick={() => router.push('/pages/Register')}
-    >
-      Register
-    </span>
+  
   </div>
 )}
 <li>
-<Link href="/">Home</Link></li>
+<Link href="/">Home</Link>
 <Link href='#!'>Travel News</Link>
 <Link href='#!' onClick={toggleFooter}>More:</Link>
-
-
+</li>
+{isSignedIn ? (
+<button
+type="submit"
+onClick={handleLogout}
+>
+Log out
+</button>  
+) : (
+<div></div>
+)}
 </ul>
 </nav>
 

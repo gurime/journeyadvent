@@ -69,7 +69,9 @@ return (
 <li><Link href='#!'>Africa</Link></li>
 <li><Link href='#!'>Australia</Link></li>
 <li><Link href='#!'>Canada</Link></li>
-<li><Link href='#!'>Italy</Link></li>
+<li><Link href='/pages/Italy'>Italy</Link></li>
+<li><Link href='/pages/France'>France</Link></li>
+<li><Link href='/pages/Indonesia'>Indonesia</Link></li>
 </ul>
 </div>
 
@@ -96,7 +98,7 @@ return (
 
 
 {/*fourth tablebox stops here*/}
-<div className="footer-tablebox" style={{ borderRight: 'none', borderLeft: 'solid 1px #fff' }}>
+{/* <div className="footer-tablebox" style={{ borderRight: 'none', borderLeft: 'solid 1px #fff' }}>
 <div className="footer-headline">Travel Health</div>
 <ul className="footer-navlink" style={{ borderBottom: 'none' }}>
 <li><Link href='#!'>Mental Health While Traveling</Link></li>
@@ -108,7 +110,7 @@ return (
 <li><Link href='#!'>Medical Research related to Travel Health</Link></li>
 <li><Link href='#!'>Cancer Prevention during Travel</Link></li>
 </ul>
-</div>
+</div> */}
 
 {/*fourth tablebox stops here*/}
 
