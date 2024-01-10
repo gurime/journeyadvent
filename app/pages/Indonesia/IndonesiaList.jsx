@@ -5,7 +5,7 @@ import { auth, db } from '@/app/Config/firebase';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { collection, deleteDoc, doc, getDoc, getDocs, getFirestore, orderBy, query, updateDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
-// import EditModalForm from '../EditModalForm';
+import EditModalForm from '../EditModalForm';
 
 
 async function getArticles(orderBy) {
@@ -33,6 +33,7 @@ export default function IndonesiaList() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editingComment, setEditingComment] = useState(null);
   const router = useRouter()
+  const commentsRef = useRef(null);
 
 const fetchComments = async (articleId) => {
 try {
@@ -183,42 +184,30 @@ return (
 
 
 
-<div className='ApartmentArticleHero'>
+<div className='IndonesiaHero'>
 <div>
-  <h1>Indonesia</h1>
+  
+<h1>Indonesia: Archipelago of Wonders</h1>
+<p>Discover the Enchanting Blend of Nature, Culture, and Heritage</p>
 
-  {!isSignedIn && (
-    <p>Please sign in or register to add listings.</p>
-  )}
 
-  <button
-    onClick={() => router.push('/pages/AdminForm')}
-    disabled={!isSignedIn}
-    style={{
-      cursor: !isSignedIn ? 'not-allowed' : 'pointer',
-      backgroundColor: !isSignedIn ? '#d3d3d3' : '#007bff',
-      color: !isSignedIn ? '#a9a9a9' : '#fff',
-    }}
-  >
-    Add a Listing
-  </button>
   
 </div>
 
 </div>
 
 
-{/* {editModalOpen && (
+{editModalOpen && (
   <EditModalForm
     comment={editingComment}
     onSave={handleEditModalSave}
     onCancel={() => setEditModalOpen(false)}
   />
-)} */}
+)}
 <div className='property-grid'>
 {useArticle.map((blog) => (
 <Link key={blog.id} href={`/pages/Articles/${blog.id}`}>
-<div className='property-card'>
+<div ref={commentsRef} className='property-card'>
 <div
 style={{
 backgroundImage: `url(${blog.cover_image})`,

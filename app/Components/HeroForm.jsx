@@ -5,18 +5,34 @@ import { collectionRoutes, getArticle } from './HeroFormApi/api'
 import Link from 'next/link';
 import Image from 'next/image';
 import searchimg from '../img/search_icon.png'
-import indopic from '../img/indopic.jpg'
-import parispic from '../img/parispic.jpg'
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { auth } from '../Config/firebase';
+import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore';
+import { auth, db } from '../Config/firebase';
+async function getArticles(orderBy, collectionName) {
+try {
+const querySnapshot = await getDocs(collection(db, collectionName));
+const data = [];
+querySnapshot.forEach((doc) => {
+data.push({ id: doc.id, ...doc.data() });
+});
+return data;
+} catch (error) {
+throw error;
+}
+}
+
 export default function HeroForm() {
+const [fetchError, setFetchError] = useState(null);
+const [loading, setLoading] = useState(true);
 const [forceRender, setForceRender] = useState(false);
-const [loading, setLoading] = useState(false);
 const [isSignedIn, setIsSignedIn] = useState(false);
 const [searchTerm, setSearchTerm] = useState('');
 const [searchResults, setSearchResults] = useState([]);
 const [isOverlayActive, setIsOverlayActive] = useState(false);
+const [comments, setComments] = useState([]);
+const [useArticle, setUseArticle] = useState([]);
+const [indonesiaArticles, setIndonesiaArticles] = useState([]);
+const [franceArticles, setFranceArticles] = useState([]);
 const router = useRouter()
 const overlayStyle = {
 position: 'fixed',
@@ -30,6 +46,33 @@ display: isOverlayActive ? 'block' : 'none',
 pointerEvents: 'none',
 };
 
+const fetchComments = async (articleId, collectionName) => {
+try {
+const db = getFirestore();
+const commentsRef = collection(db, collectionName); // Use the provided collection name
+const queryRef = query(
+commentsRef,
+where('articleId', '==', articleId),
+orderBy('timestamp', 'desc')
+);
+const querySnapshot = await getDocs(queryRef);
+const newComments = querySnapshot.docs.map((doc) => {
+const commentData = doc.data();
+return {
+id: doc.id,
+...commentData,
+timestamp: commentData.timestamp.toDate(),
+};
+});
+setComments(newComments);
+setLoading(false);
+} catch (error) {
+setErrorMessage('Error fetching comments. Please try again.');
+setLoading(false);
+}
+};
+
+
 useEffect(() => {
 const handleDocumentClick = (e) => {
 const isClickOutsideSearch = !e.target.closest('.search-container');
@@ -39,6 +82,20 @@ setSearchResults([]);
 setSearchTerm(''); // Clear the search input
 }
 };
+
+const fetchData = async () => {
+try {
+const indonesiaArticlesData = await getArticles(orderBy, 'Indonesia');
+setIndonesiaArticles(indonesiaArticlesData);
+const franceArticlesData = await getArticles(orderBy, 'France');
+setFranceArticles(franceArticlesData);
+} catch (error) {
+} finally {
+}
+};
+
+fetchData(); 
+
 document.body.addEventListener('click', handleDocumentClick);
 const unsubscribe = onAuthStateChanged(auth, (user) => {
 setForceRender((prev) => !prev); // Force re-render
@@ -137,22 +194,32 @@ Looking for inspiration for your next trip? Check out some of our top featured d
 <ul style={{padding:'0 20px'}}>
 
 <li>
-<Link href="#!">
+{indonesiaArticles.map((blog) => (
+<Link key={blog.id} href={`/pages/Articles/${blog.id}`}>
 <div className='planflex'>
 <div style={{display:'grid'}}>
-<p>Bali, Indonesia</p>
-<p>2500</p>
+<p>{blog.title}</p>
+<p>{blog.bathrooms}bds | {blog.bedrooms}ba</p>
+<p>{blog.price}</p>
 </div>
 
-<Image width={200} src={indopic} alt='...'/></div>
+<img width={200} src={blog.cover_image} alt='...'/></div>
 </Link>
+))}
 </li>
 <li>
-<Link href="#!">
+{franceArticles.map((blog) => (
+<Link key={blog.id} href={`/pages/Articles/${blog.id}`}>
 <div className='planflex'>
-<p>Paris, Italy</p>
-<Image width={200} src={parispic} alt='...'/></div>
+<div style={{display:'grid'}}>
+<p>{blog.title}</p>
+<p>{blog.bathrooms}bds | {blog.bedrooms}ba</p>
+<p>{blog.price}</p>
+</div>
+
+<img width={200} src={blog.cover_image} alt='...'/></div>
 </Link>
+))}
 </li>
 
 </ul>
