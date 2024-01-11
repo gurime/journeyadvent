@@ -171,10 +171,10 @@ padding: 10rem 0;
 }
 
 .heroform img{
-  transform: translate(0) !important;
-  position: absolute;
-  top: 57%;
-  right: 0;
+transform: translate(0) !important;
+position: absolute;
+top: 57%;
+right: 0;
 }
     
 .heroform input{
@@ -232,12 +232,11 @@ width: 100%;
 width: 93.2%;
 }
 .heroform img{
-  top:55%;
-  }
-
-  .hero h1{
-    font-size:20px;
-    }
+top:55%;
+}
+.hero h1{
+font-size:20px;
+}
 }
 /* heroform css stops here*/
 .plan-box{
@@ -380,31 +379,31 @@ width: 100%;
 /* register,login css stops here */
 
 .FranceHero {
-  background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//parispic.jpg');
-  background-size: cover;
-  background-position: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  place-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 1rem;
-  height: 600px;
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//parispic.jpg');
+background-size: cover;
+background-position: 50%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+place-items: center;
+text-align: center;
+color: #fff;
+padding: 1rem;
+height: 600px;
 }
 
 .IndonesiaHero{
-  background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//indopic.jpg');
-  background-size: cover;
-  background-position: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  place-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 1rem;
-  height: 600px;
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//indopic.jpg');
+background-size: cover;
+background-position: 50%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+place-items: center;
+text-align: center;
+color: #fff;
+padding: 1rem;
+height: 600px;
 }
 
 /* destination heros css stops here */
