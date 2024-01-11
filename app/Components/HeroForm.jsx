@@ -1,13 +1,14 @@
 'use client'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import { collectionRoutes, getArticle } from './HeroFormApi/api'
 import Link from 'next/link';
 import Image from 'next/image';
 import searchimg from '../img/search_icon.png'
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore';
 import { auth, db } from '../Config/firebase';
+import { collectionRoutes, getArticle } from './HeroFormApi/api';
+import HomeCard from './HomeCard';
 async function getArticles(orderBy, collectionName) {
 try {
 const querySnapshot = await getDocs(collection(db, collectionName));
@@ -22,7 +23,6 @@ throw error;
 }
 
 export default function HeroForm() {
-const [fetchError, setFetchError] = useState(null);
 const [loading, setLoading] = useState(true);
 const [forceRender, setForceRender] = useState(false);
 const [isSignedIn, setIsSignedIn] = useState(false);
@@ -30,7 +30,6 @@ const [searchTerm, setSearchTerm] = useState('');
 const [searchResults, setSearchResults] = useState([]);
 const [isOverlayActive, setIsOverlayActive] = useState(false);
 const [comments, setComments] = useState([]);
-const [useArticle, setUseArticle] = useState([]);
 const [indonesiaArticles, setIndonesiaArticles] = useState([]);
 const [franceArticles, setFranceArticles] = useState([]);
 const router = useRouter()
@@ -119,21 +118,26 @@ throw error;
 // Assuming you have an unsubscribe function
 return () => {
 document.body.removeEventListener('click', handleDocumentClick);
-// Make sure to define the unsubscribe function
-// unsubscribe();
+unsubscribe();
 };
 }, [searchTerm, isOverlayActive]);
 
 const handleSearch = async () => {
-// Assuming getArticle is a defined function
-const results = await getArticle(searchTerm);
-setSearchResults(results);
+    console.log('Search term in handleSearch:', searchTerm);
+
+    try {
+        const results = await getArticle(searchTerm);
+        console.log('Search results in handleSearch:', results);
+        setSearchResults(results);
+    } catch (error) {
+        console.error('Error in handleSearch:', error);
+    }
 };
 
-useEffect(() => {
-handleSearch();
-}, [searchTerm]);
-
+    
+    useEffect(() => {
+    handleSearch();
+    }, [searchTerm]);
 const getLink = (collection, id) => {
 const route = collectionRoutes[collection];
 return route ? `${route}/${id}` : '/';
@@ -147,7 +151,7 @@ return (
 <h1>Lets Find Your Next Journey </h1>
 
 <input placeholder="Find your next destination"
-type="type"
+type="text"
 spellCheck="false"
 dir="auto"
 tabIndex={0}
@@ -159,16 +163,16 @@ setIsOverlayActive(e.target.value.trim().length > 0);
 
 {searchResults.length > 0 && searchTerm && !loading && (
 <div className="search-results-container">
-{searchResults.slice(0,10).map((result) => (
+{searchResults.slice(0, 10).map((result) => (
 <div key={result.id} className="search-result-item">
 <Link key={result.id} href={getLink(result.collection, result.id)}>
-<p>{result.title} | {result.address}</p>
-
+<p>{result.title} | </p>
 </Link>
 </div>
 ))}
 </div>
 )}
+
 
 <Image style={{transform:'translate(-40px)'}} src={searchimg} width={30} alt='...'  />
 </form>
@@ -238,6 +242,8 @@ textTransform:'capitalize'
 }}>Tropical vacation blogs</h1>
 </div>
 </div>
+
+<HomeCard/>
 {/* tropical hero stops here */}
 </>
 )

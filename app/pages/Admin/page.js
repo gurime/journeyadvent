@@ -1,7 +1,8 @@
+import Navbar from '@/app/components/Navbar'
 import React from 'react'
 import AdminForm from './AdminForm'
-import Navbar from '@/app/Components/Navbar'
-import Footer from '@/app/Components/Footer'
+import Footer from '@/app/components/Footer'
+
 
 export default function Admin() {
 return (
