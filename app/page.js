@@ -1,7 +1,7 @@
+import Footer from "./components/Footer";
+import HeroForm from "./components/HeroForm";
+import Navbar from "./components/Navbar";
 
-import Footer from './Components/Footer'
-import HeroForm from './Components/HeroForm'
-import Navbar from './Components/Navbar'
 
 
 export const metadata = {
