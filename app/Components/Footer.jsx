@@ -60,7 +60,7 @@ return (
 <div className="footer-tablebox">
 <div className="footer-headline">World Travel</div>
 <ul className="footer-navlink">
-<li><Link href='#!'>United Kingdom</Link></li>
+<li><Link href='/pages/UK'>United Kingdom</Link></li>
 <li><Link href='#!'>Brazil</Link></li>
 <li><Link href='#!'>South America</Link></li>
 <li><Link href='#!'>Mexico</Link></li>

@@ -7,7 +7,7 @@ import { collection, getDocs, query } from "firebase/firestore";
 export async function getArticle(searchTerm) {
     try {
       // Corrected typo in collection name
-      const collectionNames = ['France', 'Indonesia'];
+      const collectionNames = ['France', 'Indonesia','UK'];
   
       const querySnapshots = await Promise.all(
         collectionNames.map(collectionName =>
@@ -42,5 +42,6 @@ export async function getArticle(searchTerm) {
   export const collectionRoutes = {
     Indonesia: '/pages/Articles', // Adjusted route for Indonesia
     France: '/pages/Articles', // Adjusted route for France
+    UK: '/pages/Articles', // Adjusted route for France
   };
   

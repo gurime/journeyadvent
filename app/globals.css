@@ -501,7 +501,7 @@ padding: 0 3rem;
 /* travel news css stops here */
 
 .FranceHero {
-background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//parispic.jpg');
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img/parispic.jpg');
 background-size: cover;
 background-position: center;
 display: flex;
@@ -515,7 +515,20 @@ height: 600px;
 }
 
 .IndonesiaHero{
-background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//indopic.jpg');
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img/indopic.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+place-items: center;
+text-align: center;
+color: #fff;
+padding: 1rem;
+height: 600px;
+}
+.UKHero{
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//uk-wall.jpg');
 background-size: cover;
 background-position: center;
 display: flex;
