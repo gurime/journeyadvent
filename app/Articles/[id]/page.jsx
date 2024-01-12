@@ -91,7 +91,15 @@ alt="..."
 </div>
 {/**block for category and author */}
 <div className="flexdate">{post.date}</div>
-<div className="body-content" style={{ whiteSpace: 'pre-line' }}><p>{post.content}</p></div>
+<div className="body-content">
+<p>{post.content}</p>
+<p>{post.content1}</p>
+<p>{post.content2}</p>
+<p>{post.content3}</p>
+<p>{post.content4}</p>
+<p>{post.content5}</p>
+<p>{post.content6}</p>
+</div>
 
 
 

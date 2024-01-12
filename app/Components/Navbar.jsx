@@ -110,7 +110,7 @@ Call us, we're open 24/7
 )}
 <li>
 <Link href="/">Home</Link>
-<Link href='#!'>Travel News</Link>
+<Link href='/pages/TravelNews'>Travel News</Link>
 <Link href='#!' onClick={toggleFooter}>More:</Link>
 </li>
 {isSignedIn ? (

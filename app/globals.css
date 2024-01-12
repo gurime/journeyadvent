@@ -435,10 +435,76 @@ width: 100%;
 }
 /* card css */
 
+.FeaturedTravelHero{
+position: relative;
+background-size: cover;
+background-position: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+place-items: center;
+text-align: center;
+color: #fff;
+padding: 1rem;
+width: 100%;
+height: 600px;
+}
+
+.FeatureTravelArticle_Overlay{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #0000004d; 
+display: flex;
+place-items: center;
+place-content: center;
+}
+
+
+.FeaturedTravelHero h1{
+  font-size: 3rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: #fff;
+  background-image: linear-gradient(90deg,#6d1ffa 0,#3d05a7 50%,#97058d);  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-size: 200% auto;
+  transition: .5s;
+  margin: 1rem 2px;
+  text-decoration: none;
+}
+
+.hero-btn:hover {
+  background-position: 100%;
+  color: #fff;
+}
+
+@media(max-width:768px){
+  
+  .FeaturedTravelHero h1{
+    font-size: 24px;
+    padding: 0 3rem;
+    line-height: 48px;
+  }
+  .FeaturedTravelHero p{
+    font-size: 14px;
+    padding: 0 3rem;
+  }
+}
+
+/* travel news css stops here */
+
 .FranceHero {
 background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//parispic.jpg');
 background-size: cover;
-background-position: 50%;
+background-position: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -452,7 +518,7 @@ height: 600px;
 .IndonesiaHero{
 background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//indopic.jpg');
 background-size: cover;
-background-position: 50%;
+background-position: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -704,6 +770,10 @@ font-weight: 300;
 margin-left: auto;
 display: flex;
 place-items: center;
+}
+
+.flexdate{
+  padding: 0 1rem;
 }
 
 .cover_showcase {

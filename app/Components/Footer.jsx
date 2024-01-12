@@ -98,19 +98,22 @@ return (
 
 
 {/*fourth tablebox stops here*/}
-{/* <div className="footer-tablebox" style={{ borderRight: 'none', borderLeft: 'solid 1px #fff' }}>
-<div className="footer-headline">Travel Health</div>
+<div className="footer-tablebox" style={{ borderRight: 'none', borderLeft: 'solid 1px #fff' }}>
+<div className="footer-headline">Tranportation</div>
 <ul className="footer-navlink" style={{ borderBottom: 'none' }}>
-<li><Link href='#!'>Mental Health While Traveling</Link></li>
-<li><Link href='#!'>Children's Health during Travel</Link></li>
-<li><Link href='#!'>Heart Health for Travelers</Link></li>
-<li><Link href='#!'>Pet Health Tips for Travel</Link></li>
-<li><Link href='#!'>Eye Health for Travelers</Link></li>
-<li><Link href='#!'>Tips for Healthy Living on the Road</Link></li>
-<li><Link href='#!'>Medical Research related to Travel Health</Link></li>
-<li><Link href='#!'>Cancer Prevention during Travel</Link></li>
+<li><Link href='#!'>Flighs</Link></li>
+<li><Link href='#!'>Ground</Link></li>
+<li><Link href='#!'>Parking</Link></li>
+<li><Link href='#!'>Trains</Link></li>
+<li><Link href='#!'>Taxis/Rideshares</Link></li>
+<li><Link href='#!'>Motorcycles/Scooters</Link></li>
+<li><Link href='#!'>Subways/Metros</Link></li>
+<li><Link href='#!'>Buses/Coaches</Link></li>
+<li><Link href='#!'>Boats/Ferries</Link></li>
+<li><Link href='#!'>Travel Fees</Link></li>
+
 </ul>
-</div> */}
+</div>
 
 {/*fourth tablebox stops here*/}
 

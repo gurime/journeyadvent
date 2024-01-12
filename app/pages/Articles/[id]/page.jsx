@@ -72,24 +72,7 @@ return (
 }}> Owner {post.userName} 
 
 </h3>
-<h3
-style={{
-display: 'flex',
-placeItems: 'center',
-fontWeight: '300',
-}}
-className="card-category">
 
-{/**separator */}
-<div
-style={{
-height: '30px',
-margin: '0 0 0 6px',
-}}
-></div>
-{/**separator */}
-
-</h3>
 </div>
 {/**block for category and author */}
 <div className='cover_showcase'>
