@@ -7,8 +7,8 @@ import searchimg from '../img/search_icon.png'
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore';
 import { auth, db } from '../Config/firebase';
-import { collectionRoutes, getArticle } from './HeroFormApi/api';
 import HomeCard from './HomeCard';
+import { collectionRoutes, getArticle } from './HeroFormApi/api';
 async function getArticles(orderBy, collectionName) {
 try {
 const querySnapshot = await getDocs(collection(db, collectionName));
@@ -48,7 +48,7 @@ pointerEvents: 'none',
 const fetchComments = async (articleId, collectionName) => {
 try {
 const db = getFirestore();
-const commentsRef = collection(db, collectionName); // Use the provided collection name
+const commentsRef = collection(db, collectionName); 
 const queryRef = query(
 commentsRef,
 where('articleId', '==', articleId),
@@ -115,7 +115,6 @@ throw error;
 }
 };
 
-// Assuming you have an unsubscribe function
 return () => {
 document.body.removeEventListener('click', handleDocumentClick);
 unsubscribe();
@@ -123,21 +122,18 @@ unsubscribe();
 }, [searchTerm, isOverlayActive]);
 
 const handleSearch = async () => {
-    console.log('Search term in handleSearch:', searchTerm);
-
-    try {
-        const results = await getArticle(searchTerm);
-        console.log('Search results in handleSearch:', results);
-        setSearchResults(results);
-    } catch (error) {
-        console.error('Error in handleSearch:', error);
-    }
+if (searchTerm.trim() !== '') { 
+const results = await getArticle(searchTerm);
+setSearchResults(results);
+} else {
+setSearchResults([]); 
+}
 };
-
+  
     
-    useEffect(() => {
-    handleSearch();
-    }, [searchTerm]);
+useEffect(() => {
+handleSearch();
+}, [searchTerm]);
 const getLink = (collection, id) => {
 const route = collectionRoutes[collection];
 return route ? `${route}/${id}` : '/';
@@ -161,17 +157,16 @@ setSearchTerm(e.target.value);
 setIsOverlayActive(e.target.value.trim().length > 0);
 }}/>
 
-{searchResults.length > 0 && searchTerm && !loading && (
 <div className="search-results-container">
 {searchResults.slice(0, 10).map((result) => (
 <div key={result.id} className="search-result-item">
 <Link key={result.id} href={getLink(result.collection, result.id)}>
-<p>{result.title} | </p>
+<p>{result.title} | {result.address}</p>
 </Link>
 </div>
 ))}
 </div>
-)}
+
 
 
 <Image style={{transform:'translate(-40px)'}} src={searchimg} width={30} alt='...'  />
