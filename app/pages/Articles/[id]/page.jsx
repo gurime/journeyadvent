@@ -3,7 +3,9 @@ import Navbar from '@/app/components/Navbar'
 import Goback from '@/app/components/goback'
 import { getArticle } from '../lib';
 import Goup from '@/app/components/goup';
-
+import heat_icon from '../../../img/heater_icon.png'
+import light_icon from '../../../img/light_bulb.png'
+import Image from 'next/image';
 
 
 export async function generateMetadata({ params }) {
@@ -91,8 +93,8 @@ return (
 
 <h3 style={{padding:'0 1rem'}}>Popular Amenities</h3>
 <div className='amenities-grid'>
-{post.heating && <span>Heating is available</span>}
-{post.lights && <span>Lights are available</span>}
+{post.heating && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={heat_icon} alt='...'/>Heating is available</span>}
+{post.lights && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={light_icon} alt='...'/>Lights are available</span>}
 {post.laundry && <span>Laundry is available</span>}
 {post.cable && <span>Cable is available</span>}
 {post.airConditioning && <span>AC is available</span>}
