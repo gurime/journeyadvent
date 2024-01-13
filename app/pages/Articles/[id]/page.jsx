@@ -104,8 +104,8 @@ return (
 {post.laundry && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={washer_icon} alt='...'/>Laundry is available</span>}
 {post.cable && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={tv_icon} alt='...'/>Cable is available</span>}
 {post.airConditioning && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={fan_icon} alt='...'/>AC is available</span>}
-{post.water && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={water_icon} alt='...'/>Water is available</span>}
-{post.pool && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={swim_icon} alt='...'/>Pool is available</span>}
+{post.water && <span><Image style={{ width:'20px',padding:'0 10px 0 0 ', height:'auto'}} src={water_icon} alt='...'/>Water is available</span>}
+{post.pool && <span><Image style={{ width:'40px',padding:'0 10px 0 0 ', height:'auto'}} src={swim_icon} alt='...'/>Pool is available</span>}
 {post.wifi && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={wifi_icon} alt='...'/>Wifi is available</span>}
 
 </div>

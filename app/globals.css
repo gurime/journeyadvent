@@ -885,6 +885,63 @@ margin: auto 0;
 
 /* details css stops here  */
 
+.form-container {
+  margin: auto;
+  max-width: 700px;
+  width: 100%;
+}
+
+.contactform {
+  display: grid;
+  margin: 1rem auto;
+  background-color: #fff;
+  padding: 3rem;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.contactform label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+
+
+.contactform input[type=email], .contactform input[type=text], .contactform textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: none;
+    letter-spacing: 1px;
+    line-height: 25px;
+    outline: none;
+}
+
+.contactform button {
+  background-color: #4c60af;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .3s ease-in-out;
+}
+
+.confirmation-hero{
+  display: grid;
+  height: 100svh;
+  place-items: center;
+  background-image: linear-gradient(to right,var(--gradient-stops));
+  --gradient-from: #4894ff;
+  --gradient-stops: var(--gradient-from),var(--gradient-to);
+  --gradient-to: #0055a7;
+  }
+/* contact css stops here */
+
 footer{
 padding: 3px;
 background: #6d1ffa;
