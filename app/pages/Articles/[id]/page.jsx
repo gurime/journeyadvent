@@ -98,6 +98,7 @@ return (
 {post.airConditioning && <span>AC is available</span>}
 {post.water && <span>Water is available</span>}
 {post.pool && <span>Pool is available</span>}
+{post.wifi && <span>Wifi is available</span>}
 
 </div>
 

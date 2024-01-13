@@ -26,6 +26,7 @@ const [heating, setHeating] = useState("");
 const [pool, setPool] = useState("");
 const [airConditioning, setAirConditioning] = useState("");
 const [address, setAddress] = useState("");
+const [wifi, setWifi] = useState("");
 const [ isLoading, setIsLoading] = useState(false)
 const [coverImageFile, setCoverImageFile] = useState(null);
 const [showcase1File, setShowcase1File] = useState(null);  
@@ -158,6 +159,7 @@ airConditioning: airConditioning,
 heating: heating,
 pool: pool,
 address: address,
+wifi: wifi,
 timestamp: new Date(),
 userName: user.displayName,
 userEmail: user.email,
@@ -294,6 +296,7 @@ className='billingselect'
 <option value="weekly">Weekly</option>
 <option value="sale">Sale</option>
 <option value="purchase">Purchase</option>
+<option value="per night">Per Night</option>
 </select>
 
 <label htmlFor="selectedCollection">Travel Category</label>
@@ -309,6 +312,7 @@ required
 <option value="Mexico">Mexico</option>
 <option value="Indonesia">Indonesia</option>
 <option value="France">France</option>
+<option value="Italy">Italy</option>
 {/* Add more options as needed */}
 </select>
 
@@ -396,7 +400,7 @@ onChange={(e) => setHeating(e.target.checked)}
 />
 <label htmlFor="heating">Heating</label>
 </div>
-<div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row-reverse', margin: '1rem 0', borderBottom: 'solid 1px grey' }}>
+<div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row-reverse', margin: '1rem 0' }}>
 <input
 type="checkbox"
 id="pool"
@@ -405,6 +409,16 @@ checked={pool}
 onChange={(e) => setPool(e.target.checked)}
 />
 <label htmlFor="pool">Pool</label>
+</div>
+<div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row-reverse', margin: '1rem 0' , borderBottom: 'solid 1px grey'}}>
+<input
+type="checkbox"
+id="wifi"
+name="wifi"
+checked={wifi}
+onChange={(e) => setWifi(e.target.checked)}
+/>
+<label htmlFor="pool">Wifi</label>
 </div>
 <label htmlFor="cover_image">This will be your Headline Image</label>
 <input
@@ -457,9 +471,7 @@ cols="50"
 placeholder='Describe your property'
 required
 value={content}
-onChange={(e) => setContent(e.target.value)}
-
-></textarea>
+onChange={(e) => setContent(e.target.value)}></textarea>
 
 <button
 type="submit"

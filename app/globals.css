@@ -83,7 +83,9 @@ padding: 0 1rem;
   
 .navlinks{
 display: flex;
-flex-wrap: wrap;
+flex-direction: column;
+place-items: center;
+place-content: center;
 margin-bottom: 1rem;
 }
         
@@ -96,18 +98,18 @@ padding: 1rem 0;
 
     
 .navlinks a{
-padding: 10px;
+padding: 10px ;
 margin: auto;
 font-size: 13px;
+}
+
+.navlinks li{
+  padding: 1rem 0;
 }
     
 }
 
-@media(max-width:500px){
-.navlinks button{
-margin-left: 30px;
-}
-}
+
   /* navbar stops here */
   .hero {
 background-image: linear-gradient(to bottom, #0000004d, #0000004d), url("./img/hero.jpg");
@@ -409,6 +411,12 @@ display: flex;
 place-items: center;
 }
 
+.authflex p{
+  font-size: 24px;
+    color: grey;
+    font-weight: 600;
+}
+
 .card p {
 line-height: 24px;
 }
@@ -528,7 +536,20 @@ padding: 1rem;
 height: 600px;
 }
 .UKHero{
-background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img//uk-wall.jpg');
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img/uk-wall.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+place-items: center;
+text-align: center;
+color: #fff;
+padding: 1rem;
+height: 600px;
+}
+.ItalyHero{
+background: linear-gradient(to bottom, #0000004d, #0000004d),url('./img/italpic.jpg');
 background-size: cover;
 background-position: center;
 display: flex;
@@ -806,7 +827,6 @@ padding: 0 1rem;
 .amenities-grid {
 display: grid;
 grid-template-columns: repeat(2,1fr);
-max-width: 40rem;
 line-height: 2;
 padding: 0 1rem;
 }
@@ -833,6 +853,26 @@ text-transform: capitalize;
 cursor: pointer;
 background-size: 200% auto;
 margin: auto 0;
+}
+
+.backbtn-box h1{
+  font-size: 34px;
+    font-weight: 700;
+    color: grey;
+    text-align: center;
+}
+
+@media (max-width: 1200px){
+ .backbtn-box {
+    display: flex;
+    flex-direction: column;
+    padding: 7px; 
+}
+
+.backbtn-box h1{
+  font-size: 20px;
+}
+
 }
 
 /* details css stops here  */

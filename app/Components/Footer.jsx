@@ -61,6 +61,9 @@ return (
 <div className="footer-headline">World Travel</div>
 <ul className="footer-navlink">
 <li><Link href='/pages/UK'>United Kingdom</Link></li>
+<li><Link href='/pages/Italy'>Italy</Link></li>
+<li><Link href='/pages/France'>France</Link></li>
+<li><Link href='/pages/Indonesia'>Indonesia</Link></li>
 <li><Link href='#!'>Brazil</Link></li>
 <li><Link href='#!'>South America</Link></li>
 <li><Link href='#!'>Mexico</Link></li>
@@ -69,9 +72,7 @@ return (
 <li><Link href='#!'>Africa</Link></li>
 <li><Link href='#!'>Australia</Link></li>
 <li><Link href='#!'>Canada</Link></li>
-<li><Link href='/pages/Italy'>Italy</Link></li>
-<li><Link href='/pages/France'>France</Link></li>
-<li><Link href='/pages/Indonesia'>Indonesia</Link></li>
+
 </ul>
 </div>
 
