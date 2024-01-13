@@ -8,9 +8,9 @@ import Footer from '@/app/components/Footer';
 
 
 export async function generateMetadata({ params }) {
-    const articleId = params.id;
-    try {
-      const articleDetails = await getArticle(articleId);
+const articleId = params.id;
+try {
+const articleDetails = await getArticle(articleId);
       if (articleDetails) {
         return {
           title: `Journey | ${articleDetails.title || 'Page Not Found'}`,
