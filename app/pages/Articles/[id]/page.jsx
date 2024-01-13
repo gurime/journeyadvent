@@ -5,6 +5,12 @@ import { getArticle } from '../lib';
 import Goup from '@/app/components/goup';
 import heat_icon from '../../../img/heater_icon.png'
 import light_icon from '../../../img/light_bulb.png'
+import washer_icon from '../../../img/washer_icon.png'
+import tv_icon from '../../../img/tv_icon.png'
+import fan_icon from '../../../img/fan_icon.png'
+import water_icon from '../../../img/water_icon.png'
+import swim_icon from '../../../img/swim_icon.png'
+import wifi_icon from '../../../img/wifi_icon.png'
 import Image from 'next/image';
 
 
@@ -95,12 +101,12 @@ return (
 <div className='amenities-grid'>
 {post.heating && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={heat_icon} alt='...'/>Heating is available</span>}
 {post.lights && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={light_icon} alt='...'/>Lights are available</span>}
-{post.laundry && <span>Laundry is available</span>}
-{post.cable && <span>Cable is available</span>}
-{post.airConditioning && <span>AC is available</span>}
-{post.water && <span>Water is available</span>}
-{post.pool && <span>Pool is available</span>}
-{post.wifi && <span>Wifi is available</span>}
+{post.laundry && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={washer_icon} alt='...'/>Laundry is available</span>}
+{post.cable && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={tv_icon} alt='...'/>Cable is available</span>}
+{post.airConditioning && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={fan_icon} alt='...'/>AC is available</span>}
+{post.water && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={water_icon} alt='...'/>Water is available</span>}
+{post.pool && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={swim_icon} alt='...'/>Pool is available</span>}
+{post.wifi && <span><Image style={{ width:'30px',padding:'0 10px 0 0 ', height:'auto'}} src={wifi_icon} alt='...'/>Wifi is available</span>}
 
 </div>
 

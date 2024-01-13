@@ -829,6 +829,7 @@ display: grid;
 grid-template-columns: repeat(2,1fr);
 line-height: 2;
 padding: 0 1rem;
+align-items: center;
 }
 
 .body-content {
@@ -871,6 +872,13 @@ margin: auto 0;
 
 .backbtn-box h1{
   font-size: 20px;
+}
+
+}
+@media (max-width: 768px){
+
+.amenities-grid{
+  grid-template-columns: 1fr;
 }
 
 }
