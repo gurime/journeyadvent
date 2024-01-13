@@ -1,9 +1,9 @@
-import Footer from '@/app/components/Footer'
-import Navbar from '@/app/components/Navbar'
 
+import Navbar from '@/app/components/Navbar';
+import { getArticle } from '../lib';
 import Goback from '@/app/components/goback';
 import Goup from '@/app/components/goup';
-import { getArticle } from '../lib';
+import Footer from '@/app/components/Footer';
 
 
 
